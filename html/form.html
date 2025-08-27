@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Beyond Doubt | Form</title>
+
+    <!-- FONTS: Loading custom fonts from Google Fonts -->
+    <!-- Preconnect speeds up font loading by establishing early connections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Poppins font for headings (weight 500 = medium bold) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- Lexend font for body text (all weights from 100-900) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- BOOTSTRAP: CSS framework for styling and responsive design -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <!-- Bootstrap Icons: Icon fonts for UI elements -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- CUSTOM STYLES: Our own CSS file that overrides/extends Bootstrap -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- CUSTOM JAVASCRIPT: Our form validation and interaction code -->
+    <!-- 'defer' means the script loads after the HTML is parsed -->
+    <script src="../js/script.js" defer></script>
+</head>
+
+<!-- BODY: The 'form' class tells our JavaScript this is the form page -->
+
+<body class="form">
+
+    <!-- ============================================================================= -->
+    <!-- HEADER NAVIGATION -->
+    <!-- ============================================================================= -->
+    <header>
+        <!-- MOBILE MENU BUTTON: Only visible on small screens (d-lg-none = display none on large screens) -->
+        <button class="btn button-primary d-lg-none ms-3 mt-3" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Open menu">
+            ☰
+        </button>
+
+        <!-- DESKTOP NAVIGATION: Only visible on large screens (d-none d-lg-block) -->
+        <nav class="d-none d-lg-block" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="information.html">Informational page</a></li>
+                <!-- 'active' class shows current page, aria-current helps screen readers -->
+                <li><a href="form.html" class="active" aria-current="page">Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MOBILE MENU SIDEBAR: Bootstrap offcanvas component for mobile navigation -->
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+            <!-- Close button for mobile menu -->
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close menu"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="information.html">Informational Page</a></li>
+                <li class="nav-item"><a class="nav-link" href="form.html" aria-current="page">Form</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============================================================================= -->
+    <!-- MAIN CONTENT AREA -->
+    <!-- ============================================================================= -->
+    <main class="container my-5">
+        <!-- Bootstrap grid: container > row > col for responsive layout -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Form wrapper with custom styling -->
+                <div class="form-section">
+                    <h1 class="text-center mb-4">Have Your Voice Heard</h1>
+                    <p class="text-center mb-4">Everyone benefits from encouragement, understanding, and community. Use
+                        this interactive form to uplift others, share
+                        your experiences, and show your support for mental health and self-esteem. Each voice makes our
+                        shared journey stronger.
+                    </p>
+
+                    <!-- ================================================================= -->
+                    <!-- THE MAIN FORM -->
+                    <!-- ================================================================= -->
+                    <!-- 
+                        method="post" = sends data securely
+                        action = Google Apps Script URL that processes the form
+                        aria-labelledby = connects form to its title for accessibility
+                    -->
+                    <form id="supportForm" method="post"
+                        action="https://script.google.com/macros/s/AKfycbzHogPcFX2naRmsWrA3FE46Gi-x9oR0zseN2bt-u8uggGumCyY1Vf-6M6g-70SGMa19/exec"
+                        aria-labelledby="formTitle">
+
+                        <!-- FIELDSET: Groups related form fields together -->
+                        <fieldset>
+                            <!-- Hidden legend for screen readers -->
+                            <legend id="formTitle" class="visually-hidden">Encouragement Submission Form</legend>
+
+                            <!-- ========================================================= -->
+                            <!-- NAME FIELD (Optional) -->
+                            <!-- ========================================================= -->
+                            <div class="mb-3">
+                                <!-- LABEL: Always connect labels to inputs with 'for' attribute -->
+                                <label for="name" class="form-label">Your Name (Optional)</label>
+                                <!-- INPUT: type="text" for regular text, placeholder shows hint -->
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter your first name" aria-describedby="nameHelp">
+                                <!-- ERROR MESSAGE: Hidden by default, shown when validation fails -->
+                                <div class="invalid-feedback">Name must be at least 2 characters if provided</div>
+                                <!-- HELP TEXT: Additional guidance for user -->
+                                <small id="nameHelp" class="form-text text-muted">Leave blank for anonymous</small>
+                            </div>
+
+                            <!-- ========================================================= -->
+                            <!-- MESSAGE FIELD (Required) -->
+                            <!-- ========================================================= -->
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message to Others
+                                    <!-- Asterisk indicates required field -->
+                                    <span aria-hidden="true">*</span>
+                                </label>
+                                <!-- TEXTAREA: For multi-line text, 'required' adds browser validation -->
+                                <textarea class="form-control" id="message" name="message" rows="3" required
+                                    aria-describedby="messageCounter messageHelp" maxlength="500"></textarea>
+                                <div class="invalid-feedback">Please enter a message of at least 5 characters</div>
+                                <!-- Character counter - updated by JavaScript -->
+                                <small id="messageCounter" class="form-text text-muted">0 / 500 characters</small>
+                                <small id="messageHelp" class="form-text text-muted">Share words of
+                                    encouragement.</small>
+                            </div>
+
+                            <!-- ========================================================= -->
+                            <!-- JOURNEY FIELD (Optional) -->
+                            <!-- ========================================================= -->
+                            <div class="mb-3">
+                                <label for="journey" class="form-label">Share Your Journey (Optional)</label>
+                                <textarea class="form-control" id="journey" name="journey" rows="5"
+                                    aria-describedby="journeyHelp"></textarea>
+                                <div class="invalid-feedback">Please write at least 10 characters if sharing your
+                                    journey</div>
+                                <small id="journeyHelp" class="form-text text-muted">Reflect on your experience.</small>
+                            </div>
+
+                            <!-- ========================================================= -->
+                            <!-- PLEDGE CHECKBOXES (Required - All must be checked) -->
+                            <!-- ========================================================= -->
+                            <fieldset class="mb-3">
+                                <legend class="form-label">I Pledge to... <span aria-hidden="true">*</span></legend>
+
+                                <!-- CHECKBOX 1: Each checkbox has unique ID but same name for grouping -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pledge1" name="pledge"
+                                        value="Speak kindly">
+                                    <label class="form-check-label" for="pledge1">Speak kindly to myself and
+                                        others</label>
+                                </div>
+
+                                <!-- CHECKBOX 2 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pledge2" name="pledge"
+                                        value="Support awareness">
+                                    <label class="form-check-label" for="pledge2">Support mental health
+                                        awareness</label>
+                                </div>
+
+                                <!-- CHECKBOX 3 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pledge3" name="pledge"
+                                        value="Share resources">
+                                    <label class="form-check-label" for="pledge3">Share resources with friends</label>
+                                </div>
+
+                                <!-- CHECKBOX 4 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="pledge4" name="pledge"
+                                        value="Practice self-care">
+                                    <label class="form-check-label" for="pledge4">Practice self-care</label>
+                                </div>
+
+                                <div class="invalid-feedback">Please select all pledges</div>
+                            </fieldset>
+
+                            <!-- ========================================================= -->
+                            <!-- FEELING RADIO BUTTONS (Required - Choose one) -->
+                            <!-- ========================================================= -->
+                            <fieldset class="mb-3">
+                                <legend class="form-label">How Are You Feeling Today? <span aria-hidden="true">*</span>
+                                </legend>
+
+                                <!-- RADIO 1: All radios share same 'name' so only one can be selected -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="feeling" id="feeling1"
+                                        value="Hopeful">
+                                    <label class="form-check-label" for="feeling1">😊 Hopeful</label>
+                                </div>
+
+                                <!-- RADIO 2 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="feeling" id="feeling2"
+                                        value="Calm">
+                                    <label class="form-check-label" for="feeling2">😌 Calm</label>
+                                </div>
+
+                                <!-- RADIO 3 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="feeling" id="feeling3"
+                                        value="Unsure">
+                                    <label class="form-check-label" for="feeling3">😔 Unsure</label>
+                                </div>
+
+                                <!-- RADIO 4 -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="feeling" id="feeling4"
+                                        value="Determined">
+                                    <label class="form-check-label" for="feeling4">🧠 Determined</label>
+                                </div>
+
+                                <div class="invalid-feedback">Please select how you're feeling</div>
+                            </fieldset>
+
+                            <!-- ========================================================= -->
+                            <!-- SUPPORT DROPDOWN (Required) -->
+                            <!-- ========================================================= -->
+                            <div class="mb-3">
+                                <label for="supportTime" class="form-label">When Do You Most Need Support?
+                                    <span aria-hidden="true">*</span>
+                                </label>
+                                <!-- SELECT: Dropdown menu, first option is placeholder -->
+                                <select class="form-select" id="supportTime" name="supportTime" aria-required="true">
+                                    <option value="">Select an option</option>
+                                    <option value="study">During study periods</option>
+                                    <option value="social">Social events</option>
+                                    <option value="night">Late at night</option>
+                                    <option value="always">All the time</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="invalid-feedback">Please select when you need support</div>
+                            </div>
+
+                            <!-- ========================================================= -->
+                            <!-- ANONYMOUS TOGGLE (Required - Yes/No choice) -->
+                            <!-- ========================================================= -->
+                            <fieldset class="mb-3">
+                                <legend class="form-label">Can We Feature Your Message Anonymously?
+                                    <span aria-hidden="true">*</span>
+                                </legend>
+                                <!-- Button group styling for toggle appearance -->
+                                <div class="btn-group ms-4" role="group" aria-label="Anonymous toggle">
+
+                                    <!-- TOGGLE OPTION 1: No -->
+                                    <!-- btn-check hides the radio button, custom styling on label -->
+                                    <input type="radio" class="btn-check" name="anonymousToggle" id="anonymousNo"
+                                        value="no">
+                                    <label class="btn custom-toggle" for="anonymousNo">No</label>
+
+                                    <!-- TOGGLE OPTION 2: Yes -->
+                                    <input type="radio" class="btn-check" name="anonymousToggle" id="anonymousYes"
+                                        value="yes">
+                                    <label class="btn custom-toggle" for="anonymousYes">Yes</label>
+                                </div>
+                                <div class="invalid-feedback">Please select an option</div>
+                            </fieldset>
+
+                            <!-- ========================================================= -->
+                            <!-- SUBMIT BUTTON -->
+                            <!-- ========================================================= -->
+                            <div class="text-center">
+                                <!-- type="submit" makes this button submit the form when clicked -->
+                                <button type="submit" class="btn button-primary"
+                                    aria-label="Submit form">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <!-- ERROR MESSAGES CONTAINER: For displaying JavaScript validation errors -->
+                    <!-- aria-live="polite" announces changes to screen readers -->
+                    <div id="errorMessages" aria-live="polite" role="alert"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================================================= -->
+    <!-- THANK YOU MODAL (Popup shown after successful form submission) -->
+    <!-- ============================================================================= -->
+    <!-- 
+        Modal = Bootstrap popup component
+        tabindex="-1" prevents keyboard navigation to hidden modal
+        aria-hidden="true" hides from screen readers when closed
+    -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true" aria-labelledby="thankYouTitle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal header with title -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="thankYouTitle">Thank You</h5>
+                </div>
+                <!-- Modal body with message -->
+                <div class="modal-body">
+                    <p>Thank you for showing up. Your words might brighten someone's day.</p>
+                </div>
+                <!-- Modal footer with close button -->
+                <div class="modal-footer">
+                    <!-- data-bs-dismiss="modal" closes the modal when clicked -->
+                    <button type="button" class="btn button-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (styled by CSS) -->
+    <footer>
+        <p>The above content is written with the help of perplexity</p>
+    </footer>
+
+    <!-- BOOTSTRAP JAVASCRIPT: Required for interactive components like modals, dropdowns -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- 
+================================================================================
+BEGINNER NOTES ABOUT THIS HTML FILE:
+================================================================================
+
+1. SEMANTIC HTML: We use proper tags like <main>, <header>, <fieldset> to give meaning to our content.
+
+2. ACCESSIBILITY: 
+   - All form inputs have labels
+   - aria-* attributes help screen readers
+   - Proper heading hierarchy (h1, h2, etc.)
+
+3. BOOTSTRAP CLASSES:
+   - 'container', 'row', 'col-*' create responsive grid layout
+   - 'form-control', 'form-label' style form elements
+   - 'd-none', 'd-lg-block' control visibility on different screen sizes
+
+4. FORM STRUCTURE:
+   - Each input has unique 'id' and 'name' attributes
+   - Labels connect to inputs via 'for' attribute
+   - Related inputs grouped in <fieldset> elements
+
+5. VALIDATION SETUP:
+   - 'required' attribute adds browser validation
+   - 'invalid-feedback' divs show error messages
+   - JavaScript will add 'is-invalid' class to show errors
+
+6. JAVASCRIPT INTEGRATION:
+   - Form has 'id' so JavaScript can find it
+   - Body has 'form' class to trigger form-specific JavaScript
+   - Event handlers will be attached to form elements
+-->

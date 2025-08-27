@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Beyond Doubt | Home</title>
+
+    <!-- ================================================================= -->
+    <!-- GOOGLE FONTS LOADING -->
+    <!-- ================================================================= -->
+    <!-- Preconnect establishes early connection to font servers for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Load Poppins font with multiple weights (100-900) and italic versions -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pompiere&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Load Lexend font with all available weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- ================================================================= -->
+    <!-- EXTERNAL LIBRARIES -->
+    <!-- ================================================================= -->
+    <!-- Bootstrap CSS framework for responsive design and components -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons for UI symbols -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS file that extends/overrides Bootstrap styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Custom JavaScript file loaded after HTML parsing (defer attribute) -->
+    <script src="../js/script.js" defer></script>
+</head>
+
+<!-- BODY: 'home' class tells JavaScript this is the homepage (triggers toast notification) -->
+
+<body class="home">
+
+    <!-- ================================================================= -->
+    <!-- HEADER NAVIGATION SECTION -->
+    <!-- ================================================================= -->
+    <header id="home-header">
+        <!-- MOBILE MENU BUTTON: Only visible on screens smaller than 992px -->
+        <!-- data-bs-toggle="offcanvas" tells Bootstrap to open the mobile menu -->
+        <button class="btn button-primary d-lg-none ms-3 mt-3" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileMenu" aria-controls="mobileMenu">
+            ☰
+        </button>
+
+        <!-- DESKTOP NAVIGATION: Hidden on small screens, visible on large screens -->
+        <nav class="d-none d-lg-block">
+            <ul>
+                <!-- 'active' class highlights current page -->
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="information.html">Informational page</a></li>
+                <li><a href="form.html">Form</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================================================================= -->
+    <!-- MOBILE MENU SIDEBAR (Bootstrap Offcanvas Component) -->
+    <!-- ================================================================= -->
+    <!-- Slides in from left side on mobile devices -->
+    <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+        <!-- Menu header with title and close button -->
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!-- Menu content with navigation links -->
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="information.html">Informational Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="form.html">Form</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- HERO SECTION (Main banner area) -->
+    <!-- ================================================================= -->
+    <!-- Mobile hero image - only shown on small screens -->
+    <!-- Medium image -->
+    <img src="../image/heroimagemedium.jpg" alt="medium heroimage" class="d-none d-sm-block d-lg-none img-fluid"
+        id="hero-image-medium">
+    
+    <!-- Small image -->
+    <img src="../image/heroimagesmall.jpg" alt="small heroimage" class="d-block d-sm-none img-fluid" id="hero-image-mobile">
+
+
+    <!-- Hero content container -->
+    <!-- On desktop: background image is set via CSS -->
+    <!-- Flexbox classes: d-flex (display flex), justify-content-center (center horizontally) -->
+    <!-- justify-content-lg-end (align to right on large screens) -->
+    <section class="hero d-flex justify-content-center justify-content-lg-end">
+        <!-- Hero content box -->
+        <!-- Bootstrap responsive columns: col-10 (83% width on mobile), col-lg-6 (50% width on desktop) -->
+        <div class="hero-part col-10 col-lg-6">
+            <h1 class="fw-bold">Rise Beyond Doubt</h1> <!--Bootstrap's h1 size-->
+            <p class="lead"><!--bootstrap's lead class-->
+                Rise Beyond Doubt supports teens and young adults who struggle with low self-esteem or impostor
+                syndrome. This site offers trusted information, real stories, and helpful tools to help you better
+                understand what you're feeling, why it happens, and what you can do about it.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- MAIN CONTENT AREA -->
+    <!-- ================================================================= -->
+    <main class="mx-4 mx-lg-0">
+
+        <!-- ============================================================= -->
+        <!-- INTRO SECTION -->
+        <!-- ============================================================= -->
+        <section class="container my-5">
+            <div class="row">
+                <!-- Content column: centered and constrained width -->
+                <div class="col-lg-8 mx-auto text-start">
+                    <h2>Ever feel like you're just faking it while everyone else has it all together?</h2>
+                    <p class="lead">You're not alone.</p>
+                    <p>
+                        Many teens and young adults feel pressure to be perfect—whether it's getting top grades,
+                        building a future, or just keeping up online. Social media doesn't help either—it's full of
+                        highlight reels that set impossible standards for how we should look, live, or succeed.
+                        And even when things go well, that voice in your head might whisper: "You don't really
+                        deserve this. You just got lucky."
+                        That's impostor syndrome. And it affects more people than you think—especially those in
+                        their late teens, 20s, and even 30s.
+                        But here's the truth:
+                        Feeling unsure doesn't mean you're not capable.
+                        And you don't have to carry that weight on your own.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- WHY IT MATTERS SECTION -->
+        <!-- ============================================================= -->
+        <section class="container my-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-start">
+                    <h2>Why it matters</h2>
+                    <p>
+                        Impostor syndrome and low self-esteem don't care how smart, talented, or accomplished you
+                        are—they can affect anyone. When your self-esteem takes a hit, even simple things like speaking up in class, sharing an idea, or accepting a compliment can feel impossibly hard. You start second-guessing yourself, downplaying your wins, or feeling like you don't belong.Low self-esteem often feeds impostor feelings, making you believe you're not good enough, even when there's proof you are. But here's the truth: those feelings aren't facts. The more we understand where they come from, the more power we have to challenge them. And that's how we start showing up—not as perfect, but as real, capable people who are worthy of being seen and heard.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================= -->
+        <!-- YOU ARE NOT ALONE SECTION -->
+        <!-- ============================================================= -->
+        <section class="container my-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-start">
+                    <h2>You are not the only one</h2>
+                    <p>
+                        Even people we admire—from top students to successful professionals—often carry self-doubt.
+                        These feelings are more common than you think. Talking about them is the first step to loosening their grip.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (styled by CSS) -->
+    <footer>
+        <p>The above content is written with the help of perplexity</p>
+    </footer>
+
+    <!-- ================================================================= -->
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <!-- ================================================================= -->
+    <!-- Required for interactive components like offcanvas menu, modals, dropdowns -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!-- 
+================================================================================
+BEGINNER NOTES ABOUT THIS HTML FILE:
+================================================================================
+
+1. PAGE STRUCTURE:
+   - <head>: Contains metadata, links to CSS/fonts, doesn't show on page
+   - <body>: Contains all visible content
+   - Semantic tags: <header>, <main>, <section>, <footer> give meaning to content
+
+2. RESPONSIVE DESIGN:
+   - Bootstrap classes handle different screen sizes
+   - d-lg-none: hidden on large screens (desktop)
+   - d-none d-lg-block: hidden on small screens, visible on large screens
+   - col-10 col-lg-6: different column sizes for different screen sizes
+
+3. BOOTSTRAP GRID SYSTEM:
+   - container: centers content with max-width
+   - row: horizontal group of columns
+   - col-*: defines column width (12 columns total per row)
+   - mx-auto: centers element horizontally
+   - my-5: adds margin top and bottom
+
+4. ACCESSIBILITY:
+   - aria-* attributes help screen readers
+   - Proper heading hierarchy (h1 > h2)
+   - alt attributes on images
+   - aria-label for buttons without visible text
+
+5. CLASSES EXPLAINED:
+   - fw-bold: font weight bold
+   - lead: larger, emphasized text
+   - text-start: align text to start (left in English)
+   - mx-4: horizontal margin, mx-lg-0: no horizontal margin on large screens
+
+6. JAVASCRIPT INTEGRATION:
+   - body class="home" triggers homepage-specific JavaScript
+   - defer attribute loads script after HTML is parsed
+   - data-bs-* attributes trigger Bootstrap JavaScript functionality
+-->

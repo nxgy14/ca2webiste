@@ -1,0 +1,269 @@
+/* Global styles-------------------------------------------------------------------------------------------------------------------------------------- */
+:root {
+    --reseda-green: #68795b;
+    --melon: #ffb8a5;
+    --misty-rose: #f5dbd4;
+    --celadon: #aed0a9;
+    --nyanza: #d3f6d6;
+    --moss-green: #2c560a;
+    --cerise: #e53561;
+}
+
+body {
+    background-color: var(--misty-rose);
+    font-family: 'Lexend', sans-serif;
+    color: var(--moss-green);
+    line-height: 1.6;
+    word-spacing: 0.1em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+footer {
+    background-color: var(--moss-green);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Nav bar---------------------------------------------------------------------------------------------------------*/
+nav {
+    background-color: var(--reseda-green);
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: var(--misty-rose);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: var(--melon);
+    color: var(--moss-green);
+}
+
+.button-primary {
+    color: var(--moss-green);
+    background-color: var(--melon);
+}
+
+.button-primary:hover {
+    background-color: var(--moss-green);
+    color: var(--melon);
+}
+
+li.nav-item>a {
+    color: var(--moss-green);
+}
+
+/* homepage ----------------------------------------------------------------------------------------------------------------------------------------*/
+.hero {
+    background-color: var(--misty-rose);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 991px) {
+    .hero-part {
+        position: relative;
+        bottom: 50px;
+    }
+
+    header {
+        position: sticky;
+        background-color: var(--reseda-green);
+        top: 0;
+        z-index: 1000;
+        height: 2.5rem;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .hero {
+        background: url("../image/heroimagelarge.jpg") center / cover no-repeat;
+        padding: 4rem 2rem;
+    }
+}
+
+#hero-image-mobile,#hero-image-medium{
+    height: 50vh;
+    width: 100%;
+}
+
+
+.hero-part {
+    background-color: var(--celadon);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* informational page--------------------------------------------------------------------------------------------------------------------------------*/
+/*main info cards*/
+.card {
+    border: none;
+    color: var(--moss-green);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+/*flipcards*/
+.fnm-border-dash {
+    border-style: dotted;
+    border-color: var(--reseda-green);
+    border-width: 3px;
+}
+
+.flipcard {
+    background-color: transparent;
+    width: 500px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.flipcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flipcard:hover .flipcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flipcard-front,
+.flipcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.flipcard-front {
+    background-color: var(--reseda-green);
+    color: var(--misty-rose);
+}
+
+.flipcard-back {
+    background-color: var(--celadon);
+    color: var(--moss-green);
+    transform: rotateY(180deg);
+}
+
+/* Buttons */
+.btn-outline-primary {
+    color: var(--moss-green);
+    border-color: var(--moss-green);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--moss-green);
+    border-color: var(--moss-green);
+}
+
+.custom-toggle {
+    color: var(--moss-green);
+    border-color: var(--moss-green);
+}
+
+.custom-toggle:hover,
+.custom-toggle:focus,
+.custom-toggle.active,
+.btn.custom-toggle.active:hover,
+.btn.custom-toggle.active:focus,
+.btn-check:checked+label {
+    background-color: var(--melon) !important;
+    border-color: var(--melon) !important;
+    border: 1px solid var(--moss-green) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--moss-green);
+    background-color: var(--celadon);
+}
+
+/* Remove Bootstrap's default blue glow */
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+/*did you know*/
+.border-dash {
+    border-style: double;
+    border-color: var(--melon);
+    border-width: 5px;
+}
+
+/* Form----------------------------------------------------------------------------------------------------------------------------------------------- */
+.form-section {
+    background-color: var(--celadon);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+legend.form-label {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+/* Change checkbox and radio checked color */
+.form-check-input:checked {
+    background-color: var(--reseda-green);
+    /* your custom color */
+    border-color: var(--reseda-green);
+}
+
+/* Validation Styles */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: var(--cerise);
+}
+
+.invalid-feedback {
+    color: var(--cerise);
+    /* change error message color */
+}
